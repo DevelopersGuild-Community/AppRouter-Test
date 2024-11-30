@@ -7,13 +7,16 @@ import {
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
-import { Button } from "./button";
-import { useFormState, useFormStatus } from "react-dom";
-import { authenticate } from "@/app/lib/actions";
+import { Button } from "../button";
+import { useFormStatus } from "react-dom";
+import { FC } from "react";
 
-export default function LoginForm() {
-  const [errorMessage, dispatch] = useFormState(authenticate, undefined);
+interface Props {
+  errorMessage: "Invalid credentials." | "Something went wrong." | undefined
+  dispatch: (payload: FormData) => void
+}
 
+export const LoginForm: FC<Props> = ({ errorMessage, dispatch }) => {
   return (
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
