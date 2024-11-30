@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { lusitana } from "@/app/ui/fonts";
 import { fetchCardData } from "@/app/lib/data";
+import { sql } from "@vercel/postgres";
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -20,7 +21,14 @@ export default async function CardWrapper() {
     numberOfCustomers,
     totalPaidInvoices,
     totalPendingInvoices,
-  } = await fetchCardData();
+  } = await fetchCardData(
+    sql`SELECT COUNT(*) FROM invoices`,
+    sql`SELECT COUNT(*) FROM customers`,
+    sql`SELECT
+     SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "paid",
+     SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
+     FROM invoices`
+  );
 
   return (
     <>
