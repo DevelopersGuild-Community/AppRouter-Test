@@ -25,7 +25,7 @@ export default defineConfig({
     },
     setupFiles: ["./vitest-setup.ts"],
     alias: {
-      "@": path.resolve(__dirname, "./app"),
+      "@": path.resolve(__dirname, "./"),
     },
   },
 })
