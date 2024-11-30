@@ -24,17 +24,23 @@
     "testing-library": "^0.0.2",
     "typescript": "5.2.2",
     "use-debounce": "^10.0.0",
-    "vitest": "^2.1.6",
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/bcrypt": "^5.0.1",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.14",
+    "@vitejs/plugin-react": "^4.3.4",
     "dotenv": "^16.3.1",
     "eslint": "^8.52.0",
     "eslint-config-next": "^14.0.0",
-    "prettier": "^3.0.3"
+    "jsdom": "^25.0.1",
+    "prettier": "^3.0.3",
+    "vitest": "^2.1.6"
   },
   "engines": {
     "node": ">=18"
